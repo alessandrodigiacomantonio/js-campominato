@@ -1,5 +1,5 @@
 var mines = [];
-var numeroUtente;
+var numeroUtente = [];
 var checker;
 var gameMode = '';
 var i = 0;
@@ -9,15 +9,19 @@ do {
 switch (gameMode) {
   case 'normale': {
     for (let i = 0; i < 16; i++) {
-      mines.push(randomNumGen(0, 100));
+      let random;
+      do {
+        random = (randomNumGen(1, 16));
+      } while (checkIfElementIsInArray(random, mines));
+      mines.push(random);
     }
     console.log(mines);
     do {
       do {
-        numeroUtente = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da 1 a 100)'));
-      } while (isNaN(numeroUtente) || numeroUtente <= 0 || numeroUtente > 100);
-      console.log(numeroUtente);
-      checker = checkIfElementIsInArray(numeroUtente, mines);
+        numeroUtente[i] = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da 1 a 100)'));
+      } while (isNaN(numeroUtente[i]) || numeroUtente[i] <= 0 || numeroUtente[i] > 100);
+      console.log(numeroUtente[i]);
+      checker = checkIfElementIsInArray(numeroUtente[i], mines);
       i++;
     } while (i < 84 && checker != true);
     if (checker == true) alert('Mi spiace, ma hai preso una mina e hai perso =(');
@@ -26,15 +30,19 @@ switch (gameMode) {
   }
   case 'difficile': {
     for (let i = 0; i < 16; i++) {
-      mines.push(randomNumGen(0, 80));
+      let random;
+      do {
+        random = (randomNumGen(1, 16));
+      } while (checkIfElementIsInArray(random, mines));
+      mines.push(random);
     }
     console.log(mines);
     do {
       do {
-        numeroUtente = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da 1 a 80)'));
-      } while (isNaN(numeroUtente) || numeroUtente <= 0 || numeroUtente > 80);
-      console.log(numeroUtente);
-      checker = checkIfElementIsInArray(numeroUtente, mines);
+        numeroUtente[i] = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da 1 a 80)'));
+      } while (isNaN(numeroUtente[i]) || numeroUtente[i] <= 0 || numeroUtente[i] > 80);
+      console.log(numeroUtente[i]);
+      checker = checkIfElementIsInArray(numeroUtente[i], mines);
       i++;
     } while (i < 64 && checker != true);
     if (checker == true) alert('Mi spiace, ma hai preso una mina e hai perso =(');
@@ -43,15 +51,19 @@ switch (gameMode) {
   }
   case 'hardcore': {
     for (let i = 0; i < 16; i++) {
-      mines.push(randomNumGen(0, 50));
+      let random;
+      do {
+        random = (randomNumGen(1, 16));
+      } while (checkIfElementIsInArray(random, mines));
+      mines.push(random);
     }
     console.log(mines);
     do {
       do {
-        numeroUtente = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da 1 a 50)'));
-      } while (isNaN(numeroUtente) || numeroUtente <= 0 || numeroUtente > 50);
-      console.log(numeroUtente);
-      checker = checkIfElementIsInArray(numeroUtente, mines);
+        numeroUtente[i] = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da 1 a 50)'));
+      } while (isNaN(numeroUtente[i]) || numeroUtente[i] <= 0 || numeroUtente[i] > 50);
+      console.log(numeroUtente[i]);
+      checker = checkIfElementIsInArray(numeroUtente[i], mines);
       i++;
     } while (i < 34 && checker != true);
     if (checker == true) alert('Mi spiace, ma hai preso una mina e hai perso =(');
