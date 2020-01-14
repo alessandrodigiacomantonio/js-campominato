@@ -11,7 +11,7 @@ switch (gameMode) {
     for (let i = 0; i < 16; i++) {
       let random;
       do {
-        random = (randomNumGen(1, 16));
+        random = (randomNumGen(1, 100));
       } while (checkIfElementIsInArray(random, mines));
       mines.push(random);
     }
@@ -32,7 +32,7 @@ switch (gameMode) {
     for (let i = 0; i < 16; i++) {
       let random;
       do {
-        random = (randomNumGen(1, 16));
+        random = (randomNumGen(1, 80));
       } while (checkIfElementIsInArray(random, mines));
       mines.push(random);
     }
@@ -53,7 +53,7 @@ switch (gameMode) {
     for (let i = 0; i < 16; i++) {
       let random;
       do {
-        random = (randomNumGen(1, 16));
+        random = (randomNumGen(1, 50));
       } while (checkIfElementIsInArray(random, mines));
       mines.push(random);
     }
