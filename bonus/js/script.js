@@ -17,9 +17,11 @@ switch (gameMode) {
     }
     console.log(mines);
     do {
+      let random;
       do {
-        numeroUtente[i] = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da 1 a 100)'));
-      } while (isNaN(numeroUtente[i]) || numeroUtente[i] <= 0 || numeroUtente[i] > 100);
+        random = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da 1 a 100)'));
+      } while (isNaN(random) || random <= 0 || random > 100 || checkIfElementIsInArray(random, numeroUtente));
+      numeroUtente[i] = random;
       console.log(numeroUtente[i]);
       checker = checkIfElementIsInArray(numeroUtente[i], mines);
       i++;
@@ -38,9 +40,11 @@ switch (gameMode) {
     }
     console.log(mines);
     do {
+      let random;
       do {
-        numeroUtente[i] = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da 1 a 80)'));
-      } while (isNaN(numeroUtente[i]) || numeroUtente[i] <= 0 || numeroUtente[i] > 80);
+        random = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da 1 a 80)'));
+      } while (isNaN(random) || random <= 0 || random > 80 || checkIfElementIsInArray(random, numeroUtente));
+      numeroUtente[i] = random;
       console.log(numeroUtente[i]);
       checker = checkIfElementIsInArray(numeroUtente[i], mines);
       i++;
@@ -59,9 +63,11 @@ switch (gameMode) {
     }
     console.log(mines);
     do {
+      let random;
       do {
-        numeroUtente[i] = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da 1 a 50)'));
-      } while (isNaN(numeroUtente[i]) || numeroUtente[i] <= 0 || numeroUtente[i] > 50);
+        random = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da 1 a 50)'));
+      } while (isNaN(random) || random <= 0 || random > 50 || checkIfElementIsInArray(random, numeroUtente));
+      numeroUtente[i] = random;
       console.log(numeroUtente[i]);
       checker = checkIfElementIsInArray(numeroUtente[i], mines);
       i++;
