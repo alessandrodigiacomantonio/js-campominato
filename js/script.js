@@ -11,8 +11,6 @@
 
 
 function randomNumGen(numFrom, numToo) {
-  var numFrom = Math.ceil(numFrom);
-  var numToo = Math.floor(numToo);
   var numRandom = Math.floor(Math.random()*(numToo-numFrom+1)+numFrom)
   return numRandom;
 }
