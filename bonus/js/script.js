@@ -3,81 +3,53 @@ var numeroUtente = [];
 var checker;
 var gameMode = '';
 var i = 0;
+var numFrom;
+var numToo;
+var numOfTry;
 do {
   gameMode = prompt('Scegli quale Modalità di Gioco vuoi fare.\nDifferiscono l\'una dall\'altra dal numero di caselle con le mine e dal numero di giocate che dovrai fare. \nScegli tra:\n\n"Hardcore" (16 mine, 50 caselle, 34 possibili giocate)\n"Difficile" (16 mine, 80 caselle, 64 possibili giocate)\n"Normale" (16 mine, 100 caselle, 84 possibili giocate)').toLowerCase();
 } while (gameMode != 'normale' && gameMode != 'difficile' && gameMode != 'hardcore');
 switch (gameMode) {
   case 'normale': {
-    for (let i = 0; i < 16; i++) {
-      let random;
-      do {
-        random = (randomNumGen(1, 100));
-      } while (checkIfElementIsInArray(random, mines));
-      mines.push(random);
-    }
-    console.log(mines);
-    do {
-      let random;
-      do {
-        random = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da 1 a 100)'));
-      } while (isNaN(random) || random <= 0 || random > 100 || checkIfElementIsInArray(random, numeroUtente));
-      numeroUtente[i] = random;
-      console.log(numeroUtente[i]);
-      checker = checkIfElementIsInArray(numeroUtente[i], mines);
-      i++;
-    } while (i < 84 && checker != true);
-    if (checker == true) alert('Mi spiace, ma hai preso una mina e hai perso =(');
-    else alert('Whoooa! Hai schivato tutte le mine e hai vinto!!');
+    numFrom = 1;
+    numToo = 100;
+    numOfTry = 84;
     break;
   }
   case 'difficile': {
-    for (let i = 0; i < 16; i++) {
-      let random;
-      do {
-        random = (randomNumGen(1, 80));
-      } while (checkIfElementIsInArray(random, mines));
-      mines.push(random);
-    }
-    console.log(mines);
-    do {
-      let random;
-      do {
-        random = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da 1 a 80)'));
-      } while (isNaN(random) || random <= 0 || random > 80 || checkIfElementIsInArray(random, numeroUtente));
-      numeroUtente[i] = random;
-      console.log(numeroUtente[i]);
-      checker = checkIfElementIsInArray(numeroUtente[i], mines);
-      i++;
-    } while (i < 64 && checker != true);
-    if (checker == true) alert('Mi spiace, ma hai preso una mina e hai perso =(');
-    else alert('Whoooa! Hai schivato tutte le mine e hai vinto!!');
+    numFrom = 1;
+    numToo = 80;
+    numOfTry = 64;
     break;
   }
   case 'hardcore': {
-    for (let i = 0; i < 16; i++) {
-      let random;
-      do {
-        random = (randomNumGen(1, 50));
-      } while (checkIfElementIsInArray(random, mines));
-      mines.push(random);
-    }
-    console.log(mines);
-    do {
-      let random;
-      do {
-        random = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da 1 a 50)'));
-      } while (isNaN(random) || random <= 0 || random > 50 || checkIfElementIsInArray(random, numeroUtente));
-      numeroUtente[i] = random;
-      console.log(numeroUtente[i]);
-      checker = checkIfElementIsInArray(numeroUtente[i], mines);
-      i++;
-    } while (i < 34 && checker != true);
-    if (checker == true) alert('Mi spiace, ma hai preso una mina e hai perso =(');
-    else alert('Whoooa! Hai schivato tutte le mine e hai vinto!!');
-    break
+    numFrom = 1;
+    numToo = 50;
+    numOfTry = 34;
+    break;
   }
-  default: alert('C\'è stato un errore durante la selezione della modalità di gioco, refresha la pagina. ')
+  default: alert('C\'è stato un errore durante la selezione della modalità di gioco, refresha la pagina. ');
 }
+for (let i = 0; i < 16; i++) {
+  let random;
+  do {
+    random = (randomNumGen(numFrom, numToo));
+  } while (checkIfElementIsInArray(random, mines));
+  mines.push(random);
+}
+console.log(mines);
+do {
+  let random;
+  do {
+    random = parseInt(prompt('Inserisci il ' + (i+1) + '° numero ed incrociamo le dita (Ammessi da '+numFrom+' a '+numToo+')'));
+  } while (isNaN(random) || random < numFrom || random > numToo || checkIfElementIsInArray(random, numeroUtente));
+  numeroUtente[i] = random;
+  console.log(numeroUtente[i]);
+  checker = checkIfElementIsInArray(numeroUtente[i], mines);
+  i++;
+} while (i < numOfTry && checker != true);
+if (checker == true) alert('Mi spiace, ma hai preso una mina e hai perso =(');
+else alert('Whoooa! Hai schivato tutte le mine e hai vinto!!');
 
 function randomNumGen(numFrom, numToo) {
   var numRandom = Math.floor(Math.random()*(numToo-numFrom+1)+numFrom);
