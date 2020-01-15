@@ -7,7 +7,7 @@ var numFrom;
 var numToo;
 var numOfTry;
 do {
-  gameMode = prompt('Scegli quale Modalità di Gioco vuoi fare.\nDifferiscono l\'una dall\'altra dal numero di caselle con le mine e dal numero di giocate che dovrai fare. \nScegli tra:\n\n"Hardcore" (16 mine, 50 caselle, 34 possibili giocate)\n"Difficile" (16 mine, 80 caselle, 64 possibili giocate)\n"Normale" (16 mine, 100 caselle, 84 possibili giocate)').toLowerCase();
+  gameMode = prompt('Scegli quale Modalità di Gioco vuoi fare.\nDifferiscono l\'una dall\'altra dal numero di caselle del tabellone di gioco e dal numero di giocate che dovrai fare. \nScegli tra:\n\n"Hardcore" (16 mine, 50 caselle, 34 possibili giocate)\n"Difficile" (16 mine, 80 caselle, 64 possibili giocate)\n"Normale" (16 mine, 100 caselle, 84 possibili giocate)').toLowerCase();
 } while (gameMode != 'normale' && gameMode != 'difficile' && gameMode != 'hardcore');
 switch (gameMode) {
   case 'normale': {
