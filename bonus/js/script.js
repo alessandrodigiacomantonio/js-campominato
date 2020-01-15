@@ -7,7 +7,7 @@ var numFrom;
 var numToo;
 var numOfTry;
 do {
-  gameMode = prompt('Scegli quale Modalità di Gioco vuoi fare.\nDifferiscono l\'una dall\'altra dal numero di caselle del tabellone di gioco e dal numero di giocate che dovrai fare. \nScegli tra:\n\n"Hardcore" (16 mine, 50 caselle, 34 possibili giocate)\n"Difficile" (16 mine, 80 caselle, 64 possibili giocate)\n"Normale" (16 mine, 100 caselle, 84 possibili giocate)').toLowerCase();
+  gameMode = prompt('Scegli quale Modalità di Gioco vuoi fare.\nDifferiscono l\'una dall\'altra dal numero di caselle del tabellone di gioco e dal numero di giocate che dovrai fare.\nOgni volta che riesci a fare un passo, guadagni 50 punti.\nScegli tra:\n\n"Hardcore" (16 mine, 50 caselle, 34 possibili giocate)\n"Difficile" (16 mine, 80 caselle, 64 possibili giocate)\n"Normale" (16 mine, 100 caselle, 84 possibili giocate)').toLowerCase();
 } while (gameMode != 'normale' && gameMode != 'difficile' && gameMode != 'hardcore');
 switch (gameMode) {
   case 'normale': {
@@ -48,8 +48,8 @@ do {
   checker = checkIfElementIsInArray(numeroUtente[i], mines);
   i++;
 } while (i < numOfTry && checker != true);
-if (checker == true) alert('Mi spiace, ma hai preso una mina e hai perso =(');
-else alert('Whoooa! Hai schivato tutte le mine e hai vinto!!');
+if (checker == true) alert('Mi spiace, ma hai preso una mina e hai perso =(\nHai totalizzato '+((i-1)*50)+' punti !');
+else alert('Whoooa! Hai schivato tutte le mine e hai vinto!!\nHai totalizzato la bellezza di '+((i-1)*50)+' punti !');
 
 function randomNumGen(numFrom, numToo) {
   var numRandom = Math.floor(Math.random()*(numToo-numFrom+1)+numFrom);
